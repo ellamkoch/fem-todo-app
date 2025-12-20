@@ -1,7 +1,10 @@
+//react imports
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//style imports
+import './styles/index.css';
 import './styles/main.scss';
+// app import
 import App from './App.jsx';
 
 // Get the root element from the HTML

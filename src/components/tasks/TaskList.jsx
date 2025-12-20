@@ -3,7 +3,7 @@
 // - useMemo: calculates “derived values” (totals + filtered list) only when needed
 import { useState, useMemo } from "react";
 //boostrap import
-import Spinner from 'react-bootstrap/Spinner';
+
 
 //child component imports
 import TaskItem from "./TaskItem.jsx";
@@ -125,7 +125,7 @@ function TaskList() {
       )}
 
       {loading ? (
-        <Spinner animation="border" />
+        <div>Loading...</div>
       ) : (
         <ul className="task-list">
           {visibleTasks.map((task) => (
