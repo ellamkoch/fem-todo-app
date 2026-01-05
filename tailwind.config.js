@@ -12,8 +12,7 @@ export default {
         // Example:
         // primary: 'var(--primary)',
         // secondary: 'var(--secondary)',
-        // Override the white name
-        white: '#000',
+
       },
       borderRadius: {
         // Custom border radius values
@@ -29,6 +28,11 @@ export default {
         // Custom spacing values
         // Example:
         // '128': '32rem',
+      },
+         // Update width values
+      width: {
+        'halfValue': '50%',
+        'fullValue': '100%',
       },
     },
   },

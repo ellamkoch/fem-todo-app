@@ -12,15 +12,20 @@ It is being updated from a Supabase + React task list into a styled Todo applica
 
 ### Current Progress
 
-* Converted the project from Bootstrap-based styling to **Tailwind CSS**
+* Migrated styling from Bootstrap/SCSS toward **Tailwind CSS**
 * Installed and configured **shadcn UI**
 * Added reusable UI components (Button, Checkbox, Input)
-* Introduced path aliases using `jsconfig.json` and Vite config
+* Introduced path aliases using `jsconfig.json` and Vite
 * Updated Supabase Row Level Security (RLS) policies to support UI interactions
 * Cleaned up legacy Bootstrap dependencies and loaders
 * Updated lint scripts to support JSX and Tailwind-generated CSS
+* Implemented a global **theme system** (light / dark / system) using React Context
+* Persisted theme preference using localStorage
+* Connected Tailwind dark mode via the `dark` class on the document root
+* Aligned existing SCSS styles with theme tokens for theme-aware backgrounds and text
 
-Some Stylelint warnings remain related to Tailwind/shadcn-specific at-rules, which do not affect application functionality and will be addressed later.
+Some Stylelint warnings remain related to Tailwind/shadcn-specific at-rules. These are expected with the current configuration and do not affect application functionality. They will be addressed once styling work is finalized.
+
 
 ## **Tech Stack**
 
@@ -28,12 +33,13 @@ Some Stylelint warnings remain related to Tailwind/shadcn-specific at-rules, whi
 - Supabase
 - Tailwind CSS
 - shadcn UI
+- SCSS (legacy styles, gradually being aligned with theme tokens)
 
 ## Live Demo
 
-## Day 1
+Coming soon
 
-### Notes
+
 
 ## Resources
 
