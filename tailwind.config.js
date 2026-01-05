@@ -23,6 +23,7 @@ export default {
         // Custom font families
         // Example:
         // sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ["var(--font-sans)"],
       },
       spacing: {
         // Custom spacing values
