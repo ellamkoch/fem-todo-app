@@ -1,6 +1,9 @@
 
 //react import
 import { useState } from "react";
+//component imports
+import Input from "@components/shared/input.component";
+
 
 /**
  * NewTaskForm lets the user add a new task.
@@ -53,7 +56,7 @@ const NewTaskForm = ({ onAddTask }) => { //destructuring the prop for the compon
       setSubmitting(false);
     }
   };
-//below is what's returned on submit of the added task, error text and what happens to the button while a task is being added. 
+//below is what's returned on submit of the added task, error text and what happens to the button while a task is being added.
 //htmlFor is a react rule for screen reader accessibility
 //disabled in the input submit prevents double posting. Input value there comes from the state, not the DOM as its occurring on the onChange event.
 //submit button is disabled if submitting or the input is empty after trimming. text updates based upon state of adding or add with ternary operator.
@@ -64,13 +67,14 @@ const NewTaskForm = ({ onAddTask }) => { //destructuring the prop for the compon
         Task title
       </label>
 
-      <input
+      <Input
         id="task-title"
         type="text"
         placeholder="Add a new task…"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
         disabled={submitting}
+        className="flex-1"
       />
 
       <button type="submit" disabled={submitting || !title.trim()}>

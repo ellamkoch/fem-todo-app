@@ -10,7 +10,7 @@
 // react imports
 import { useCallback, useEffect, useState } from "react";
 // supabase client
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "@lib/supabaseClient";
 
 function useTasks() {
   // local state owned by the hook

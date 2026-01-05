@@ -10,14 +10,15 @@
     "lint:styles": "stylelint \"src/**/*.{scss,css}\"",
     "lint:html": "htmlhint index.html",
     "lint": "npm run lint:js && npm run lint:styles && npm run lint:html",
-    "lint:js:fix": "eslint \"src/**/*.js\" --fix",
-    "lint:styles:fix": "stylelint \"src/**/*.scss\" --fix",
-    "lint:fix": "npm run lint:js:fix && npm run lint:scss:fix",
+    "lint:js:fix": "eslint \"src/**/*.{js,jsx}\" --fix",
+    "lint:styles:fix": "stylelint \"src/**/*.{scss,css}\" --fix",
+    "lint:fix": "npm run lint:js:fix && npm run lint:styles:fix",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.3.3",
     "@radix-ui/react-slot": "^1.2.4",
     "@supabase/supabase-js": "^2.87.0",
     "@tailwindcss/postcss": "^4.1.18",

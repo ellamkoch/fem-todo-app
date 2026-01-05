@@ -6,11 +6,11 @@ import { useState, useMemo } from "react";
 
 
 //child component imports
-import TaskItem from "./TaskItem.jsx";
-import NewTaskForm from "./NewTaskForm.jsx";
+import TaskItem from "@components/tasks/TaskItem.jsx";
+import NewTaskForm from "@components/tasks/NewTaskForm.jsx";
 //custom hook import
 
-import { useTasks } from "../../hooks/useTasks.js";
+import { useTasks } from "@hooks/useTasks.js";
 
 /**
  * TaskList (Day 4):
