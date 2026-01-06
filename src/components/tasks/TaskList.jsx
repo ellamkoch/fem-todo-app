@@ -29,7 +29,8 @@ function TaskList() {
     error, //error msg string if something fails
     addTask, //helper functions that talk to supabase to add/toggle or delete tasks
     toggleTask,
-    deleteTask
+    deleteTask,
+    clearCompleted
   } = useTasks();
 
   /**
@@ -70,7 +71,7 @@ function TaskList() {
     if (filter === "active") return !task.is_complete;
     if (filter === "completed") return task.is_complete;
     return true;
-  }), [tasks, filter]);
+  }), [tasks, filter]);//dependency array
 
   return (
     <section className="card">
@@ -78,12 +79,13 @@ function TaskList() {
 
       <NewTaskForm onAddTask={handleAddTask} />
 
-      {/* Filter controls */}
+      {/* Filter controls - passing vars to props here. */}
       <TaskControls
         filter={filter}
         setFilter={setFilter}
         totalTasks={totalTasks}
         completedTasks={completedTasks}
+        clearCompleted={clearCompleted}
       />
 
       {error && <p className="error-text">{error}</p>}

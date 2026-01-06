@@ -26,7 +26,6 @@ It is being updated from a Supabase + React task list into a styled Todo applica
 
 Some Stylelint warnings remain related to Tailwind/shadcn-specific at-rules. These are expected with the current configuration and do not affect application functionality. They will be addressed once styling work is finalized.
 
-
 ## **Tech Stack**
 
 - React (Vite)
@@ -39,11 +38,10 @@ Some Stylelint warnings remain related to Tailwind/shadcn-specific at-rules. The
 
 Coming soon
 
-
-
 ## Resources
 
 * Supabase Documentation - [https://supabase.com/docs/guides](https://supabase.com/docs/guides)
 * React documentation - [https://react.dev/reference/react](https://react.dev/reference/react)
 * Frontend Mentor Todo App Challenge: [https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
+* Shadcn/UI documentation - [https://ui.shadcn.com/docs/components](https://ui.shadcn.com/docs/components)
 
