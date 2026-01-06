@@ -2,14 +2,14 @@
 // - useState: stores UI state (like the filter button you picked)
 // - useMemo: calculates “derived values” (totals + filtered list) only when needed
 import { useState, useMemo } from "react";
-//boostrap import
 
 
 //child component imports
 import TaskItem from "@components/tasks/TaskItem.jsx";
 import NewTaskForm from "@components/tasks/NewTaskForm.jsx";
-//custom hook import
+import TaskControls from "@components/tasks/TaskControls.jsx";
 
+//custom hook import
 import { useTasks } from "@hooks/useTasks.js";
 
 /**
@@ -61,8 +61,7 @@ function TaskList() {
   };
 
   // Derived summary information based on current tasks.
-  // useMemo is for values
-  // useCallback is for functions
+  // useMemo is for remembering values & useCallback is for functions
   const totalTasks = useMemo(() => tasks.length, [tasks]);
   const completedTasks = useMemo(() => tasks.filter((task) => task.is_complete).length, [tasks]);
 
@@ -80,49 +79,16 @@ function TaskList() {
       <NewTaskForm onAddTask={handleAddTask} />
 
       {/* Filter controls */}
-      <div style={{ marginBottom: "0.75rem", fontSize: "0.9rem" }}>
-        <span style={{ marginRight: "0.5rem" }}>Filter:</span>
-        <button
-          type="button"
-          onClick={() => setFilter("all")}
-          style={{
-            marginRight: "0.25rem",
-            fontWeight: filter === "all" ? "600" : "400"
-          }}
-        >
-          All
-        </button>
-        <button
-          type="button"
-          onClick={() => setFilter("active")}
-          style={{
-            marginRight: "0.25rem",
-            fontWeight: filter === "active" ? "600" : "400"
-          }}
-        >
-          Active
-        </button>
-        <button
-          type="button"
-          onClick={() => setFilter("completed")}
-          style={{
-            fontWeight: filter === "completed" ? "600" : "400"
-          }}
-        >
-          Completed
-        </button>
-      </div>
+      <TaskControls
+        filter={filter}
+        setFilter={setFilter}
+        totalTasks={totalTasks}
+        completedTasks={completedTasks}
+      />
 
       {error && <p className="error-text">{error}</p>}
 
       {!loading && !error && tasks.length === 0 && <p>No tasks yet.</p>}
-
-      {totalTasks > 0 && (
-        <p className="task-summary">
-          <strong>{totalTasks}</strong> tasks ·{" "}
-          <strong>{completedTasks}</strong> completed
-        </p>
-      )}
 
       {loading ? (
         <div>Loading...</div>
@@ -140,6 +106,6 @@ function TaskList() {
       )}
     </section>
   );
-};
+}
 
 export default TaskList;
