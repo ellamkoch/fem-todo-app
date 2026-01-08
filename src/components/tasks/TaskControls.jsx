@@ -8,18 +8,19 @@ import ClearCompleted from "@components/tasks/ClearCompleted.jsx";
 
 function TaskControls({ filter, setFilter, totalTasks, completedTasks, clearCompleted }) {
   return (
-    <div className="task-controls flex items-center justify-between px-4 py-3">
+    <div className="task-controls flex items-center justify-between px-2  text-xs text-muted-foreground border-t border-border">
 
         <TasksLeft //passes props numbers so TasksLeft can display "items left"
             totalTasks={totalTasks} //created a prop named totalTasks and gave it the value of the var totalTasks
             completedTasks={completedTasks} // another prop for completedTasks and gave it value of the var completedTasks
         />
-        <Filters filter={filter}//tells Filters which button is active
-            setFilter={setFilter} //lets Filters update the state that lives in TaskList, not Filters
-        />
+        <Filters
+          filter={filter}//tells Filters which button is active
+          setFilter={setFilter} //lets Filters update the state that lives in TaskList, not Filters
+         />
         <ClearCompleted // disabled when completedTasks === 0, calls clearCompleted on click
-            completedTasks={completedTasks}
-            clearCompleted={clearCompleted}
+          completedTasks={completedTasks}
+          clearCompleted={clearCompleted}
         />
 
 

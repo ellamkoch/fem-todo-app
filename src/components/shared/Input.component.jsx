@@ -1,5 +1,5 @@
 /* Input.component.jsx */
-//This file is for an input component that has a reusable structure. It has the basic default components of a modern input component.
+//This file is for an input component that has a reusable structure.
 
 const Input = ({ id, type = "text", placeholder = "", value, onChange, className = "", disabled }) => {
   return (
@@ -9,7 +9,7 @@ const Input = ({ id, type = "text", placeholder = "", value, onChange, className
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
+      className={`input font-semibold w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none ${className}`}
       disabled={disabled}
     />
   );

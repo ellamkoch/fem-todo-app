@@ -23,6 +23,13 @@ It is being updated from a Supabase + React task list into a styled Todo applica
 * Persisted theme preference using localStorage
 * Connected Tailwind dark mode via the `dark` class on the document root
 * Aligned existing SCSS styles with theme tokens for theme-aware backgrounds and text
+* Refactored task UI into focused, reusable components (TaskList, TaskItem, TaskControls, Filters, TasksLeft)
+* Implemented **Clear Completed** functionality with Supabase + local state synchronization
+* Centralized task data logic in a custom `useTasks` hook
+* Integrated shadcn UI components into core interactions (buttons, inputs, checkboxes)
+* Refined layout and spacing to more closely match the Frontend Mentor design, focusing on tighter vertical rhythm and reduced padding
+* Resolved interaction and layering issues between the hero background and interactive UI elements
+* Improved accessibility with ARIA attributes and non-intrusive UI hints (tooltips)
 
 Some Stylelint warnings remain related to Tailwind/shadcn-specific at-rules. These are expected with the current configuration and do not affect application functionality. They will be addressed once styling work is finalized.
 

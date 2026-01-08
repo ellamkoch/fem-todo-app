@@ -3,7 +3,6 @@
 // - useMemo: calculates “derived values” (totals + filtered list) only when needed
 import { useState, useMemo } from "react";
 
-
 //child component imports
 import TaskItem from "@components/tasks/TaskItem.jsx";
 import NewTaskForm from "@components/tasks/NewTaskForm.jsx";
@@ -11,6 +10,11 @@ import TaskControls from "@components/tasks/TaskControls.jsx";
 
 //custom hook import
 import { useTasks } from "@hooks/useTasks.js";
+
+//shadcn imports
+import { Card } from "@components/ui/card";
+// import { Separator } from "@components/ui/separator";
+import { Skeleton } from "@components/ui/skeleton";
 
 /**
  * TaskList (Day 4):
@@ -74,28 +78,37 @@ function TaskList() {
   }), [tasks, filter]);//dependency array
 
   return (
-    <section className="card">
-      <h2 className="color-white">Tasks</h2>
-
+    // new todo section <> is an invisible react wrapper that allows the 1 parent rule, and doesnt render a div or anything in the dom. just allows things to be grouped together w/o markup.
+    <>
+    <Card className="mt-6 overflow-hidden rounded-sm bg-card text-card-foreground shadow-sm">
       <NewTaskForm onAddTask={handleAddTask} />
+    </Card>
 
-      {/* Filter controls - passing vars to props here. */}
-      <TaskControls
-        filter={filter}
-        setFilter={setFilter}
-        totalTasks={totalTasks}
-        completedTasks={completedTasks}
-        clearCompleted={clearCompleted}
-      />
+   <Card className="mt-6 overflow-hidden rounded-sm bg-card text-card-foreground shadow-sm">
+      {error && (
+        <p className="error-text px-4 py-3 text-sm text-destructive">
+          {error}
+        </p>
+      )}
 
-      {error && <p className="error-text">{error}</p>}
-
-      {!loading && !error && tasks.length === 0 && <p>No tasks yet.</p>}
+      {!loading && !error && tasks.length === 0 && (
+        <p className="no-tasks px-4 py-6 text-center text-sm text-muted-foreground">
+          No items yet
+        </p>
+      )}
 
       {loading ? (
-        <div>Loading...</div>
+        <div className="divide-y divide-border">
+          {Array.from({ length: 4 }).map((_, i) => (//map tells it to make 4 empty slots for the skeleton
+          //_ means we don't care about the value, i is index
+            <div key={i} className="flex items-center gap-3 px-4 py-4">
+              <Skeleton className="h-5 w-5 rounded-full" />
+              <Skeleton className="h-4 w-full max-w-90px" />
+            </div>
+          ))}
+        </div>
       ) : (
-        <ul className="task-list">
+        <ul className="task-list divide-y divide-border">
           {visibleTasks.map((task) => (
             <TaskItem
               key={task.id}
@@ -106,8 +119,17 @@ function TaskList() {
           ))}
         </ul>
       )}
-    </section>
-  );
+      {/* Filter controls - passing vars to props here. */}
+       <TaskControls
+        filter={filter}
+        setFilter={setFilter}
+        totalTasks={totalTasks}
+        completedTasks={completedTasks}
+        clearCompleted={clearCompleted}
+      />
+    </Card>
+  </>
+);
 }
 
 export default TaskList;

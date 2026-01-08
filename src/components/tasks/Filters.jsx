@@ -1,28 +1,32 @@
-
+//This file is a group of toggle buttons at the bottom of the task list that changes how the list is filtered.
 function Filters ({ filter, setFilter}) {
 
-    const allBtn = "px-2 py-1 text-sm";
-    const activeBtn = "font-semibold text-primary";
-    const completedBtn = "font-normal text-muted-foreground hover:text-foreground";
+    //storing tailwind styles in variables here for easier styling
+    const allBtn ="px-1 text-sm cursor-pointer"; // for all buttons
+    const activeBtn ="text-primary"; //for active button styling
+    const inactiveBtn ="text-muted-foreground hover:text-foreground";//hover/inactive colors
 
     return (
-        <div className="flex items-center gap-2 text-sm">
+        <div className="filter-btns flex items-center gap-2 text-sm">
             <button
                 type="button"
                 onClick={() => setFilter("all")}
-                className={`${allBtn} ${filter === "all" ? activeBtn : completedBtn}`}
+                aria-pressed={filter === "all"}
+                className={`${allBtn} ${filter === "all" ? activeBtn : inactiveBtn}`}
                 >All
             </button>
             <button
                 type="button"
                 onClick={() => setFilter("active")}
-                className={`${allBtn} ${filter === "active" ? activeBtn : completedBtn}`}
+                aria-pressed={filter === "active"}
+                className={`${allBtn} ${filter === "active" ? activeBtn : inactiveBtn}`}
                 >Active
             </button>
             <button
                 type="button"
-                onClick={() => setFilter("completed")}
-                className={`${allBtn} ${filter === "completed" ? activeBtn : completedBtn}`}
+                onClick={() => setFilter("inactive")}
+                aria-pressed={filter === "completed"}
+                className={`${allBtn} ${filter === "completed" ? activeBtn : inactiveBtn}`}
                 >Completed
             </button>
         </div>

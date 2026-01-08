@@ -62,26 +62,32 @@ const NewTaskForm = ({ onAddTask }) => { //destructuring the prop for the compon
 //submit button is disabled if submitting or the input is empty after trimming. text updates based upon state of adding or add with ternary operator.
 //{error &&} line is conditional rendering and only shows when the error exists.
   return (
-    <form onSubmit={handleSubmit} className="new-task-form">
+    <form onSubmit={handleSubmit} className="new-task-form flex items-center px-5 py-3">
       <label htmlFor="task-title" className="sr-only">
         Task title
       </label>
 
+      <div className="flex items-center mt-1 gap-3">
+         <span
+        aria-hidden="true"
+        className="h-5 w-5 rounded-full border border-border"// does the circle next to the new todo
+      />
       <Input
         id="task-title"
         type="text"
-        placeholder="Add a new task…"
+        placeholder="Create a new todo…"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
         disabled={submitting}
         className="flex-1"
       />
-
-      <button type="submit" disabled={submitting || !title.trim()}>
+    </div>
+      {/* <button type="submit"
+      disabled={submitting || !title.trim()}>
         {submitting ? "Adding…" : "Add"}
-      </button>
+      </button> */}
 
-      {error && <p className="error-text">{error}</p>}
+      {error && <p className="error-text px-5 pb-4 text-sm text-destructive">{error}</p>}
     </form>
   );
 };

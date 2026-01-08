@@ -25,8 +25,8 @@ export default function TaskItem({ task, onToggleComplete, onDelete }) {
   };
 //within this, if a title is checked, the task is marked as complete. same as if the checkbox is checked.
   return (
-    <li className="task-item">
-      <label className="task-item__content">
+    <li className="task-item group flex items-center justify-between gap-3 px-4 ">
+      <label className="task-item__content flex flex-1 cursor-pointer items-center gap-3">
         <CustomCheckbox
           checked={task.is_complete}
           onChange={handleToggle}
@@ -34,8 +34,8 @@ export default function TaskItem({ task, onToggleComplete, onDelete }) {
         <span
           className={
             task.is_complete
-              ? "task-item__title task-item__title--done"
-              : "task-item__title"
+              ? "task-item__title text-sm text-muted-foreground line-through"
+              : "task-item__title text-sm text-foreground"
           }
         >
           {task.title}
@@ -43,7 +43,7 @@ export default function TaskItem({ task, onToggleComplete, onDelete }) {
       </label>
       <button
         type="button"
-        className="task-item__delete"
+        className="task-item__delete text-muted-foreground hover:text-foreground md:opacity-0 md:group-hover:opacity-100"
         onClick={handleDelete}
         aria-label="Delete task"
       >

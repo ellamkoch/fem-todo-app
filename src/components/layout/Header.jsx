@@ -1,9 +1,9 @@
 /**
  * Header with global theme toggle (light / dark mode)
  */
-
+import ThemeToggle from "@components/shared/ThemeToggle.component";
 import Title from "@components/shared/Title.component";
-import { Button} from "@components/ui/button";
+// import { Button } from "@components/ui/button";
 import { useTheme } from "@hooks/useTheme";
 
 export default function Header() {
@@ -12,18 +12,21 @@ export default function Header() {
   const isDark = theme === "dark";
   //toggle btwn light/dark modes
   const handleThemeChange = () => {
-    setTheme(isDark ? "light" : "dark");
-  };
+  setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+};
+
 
   return (
-    <header className="app-header flex">
-      <Title>Supabase Tasks</Title>
-      <p className="app-header__subtitle">
-        Simple task list powered by Supabase, built with React + Vite.
-      </p>
-      <Button variant="secondary" onClick={handleThemeChange}>
-        Change to {isDark ? "Light" : "Dark"} Mode
-      </Button>
-    </header>
+    <header className="app-header relative z-50 pointer-events-auto mx-auto flex w-full max-w-lg items-center justify-between gap-4 px-6 pt-10 md:px-0 md:pt-16">
+      <Title
+        hLevel={1}
+        className="text-3xl mb-3 font-semibold tracking-[0.4em] text-white md:text-4xl"
+      >
+        TODO
+      </Title>
+
+        <ThemeToggle isDark={isDark} onToggle={handleThemeChange} />
+
+      </header>
   );
 }

@@ -1,3 +1,4 @@
+// This file is where the React app starts, loads global styles, and wraps the app in providers (ThemeProvider).
 //react imports
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
