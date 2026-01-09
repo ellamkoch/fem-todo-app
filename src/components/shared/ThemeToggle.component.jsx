@@ -20,7 +20,7 @@ export default function ThemeToggle({ isDark, onToggle }) {
       size="icon"
       onClick={onToggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="h-10 w-10 p-0 bg-transparent"
+      className="h-10 w-10 p-0"
     >
       <img
         src={isDark ? "/images/icon-sun.svg" : "/images/icon-moon.svg"}

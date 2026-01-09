@@ -5,7 +5,7 @@ function TasksLeft({ totalTasks, completedTasks }){
   if (totalTasks === 0) return null;
 
     return (
-        <p className="task-left px-1 text-sm text-muted-foreground">
+        <p className="task-left px-1">
           {remaining} item{remaining !== 1 ? "s" : ""} left
         </p>
     );

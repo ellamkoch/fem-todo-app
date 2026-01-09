@@ -4,12 +4,12 @@ import { Button } from "../ui/button";
 function Filters ({ filter, setFilter}) {
 
     //storing tailwind styles in variables here for easier styling
-    const allBtn ="px-1 text-sm cursor-pointer"; // for all buttons
+    const allBtn ="px-1"; // for all buttons
     const activeBtn ="text-primary"; //for active button styling
-    const inactiveBtn ="text-muted-foreground hover:text-accent-foreground";//hover/inactive colors
+    const inactiveBtn ="text-muted-foreground hover:text-foreground";//hover/inactive colors
 
     return (
-        <div className="filter-btns flex items-center gap-2 text-sm">
+        <div className="filter-btns flex items-center gap-2">
             <Button
                 type="button"
                 variant="ghost"

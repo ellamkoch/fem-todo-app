@@ -20,15 +20,15 @@ function MainLayout({ children }) {
     <div className="min-h-screen bg-background ">
       <HeroBackground isDark={isDark} />
 
-      <div className="-mt-[200px] md:-mt-[300px] mb-15 relative z-75 pointer-events-auto">
+      <div className="-mt-[300px] mb-15 relative z-75 pointer-events-auto">
 
-        <div className="mx-auto w-full max-w-lg px-6 pt-10 md:px-0 md:pt-16">
+        <div className="mx-auto w-full max-w-lg pt-5">
           <Header />
         </div>
         </div>
 
-        <div className="list_container -mt-16 md:-mt-20 relative z-10">
-        <div className="mx-auto w-full max-w-lg px-6 pt-10 md:px-0">
+        <div className="list_container -mt-16 relative z-10">
+        <div className="mx-auto w-full max-w-lg pt-10">
           {children}
         </div>
       </div>

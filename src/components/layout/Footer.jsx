@@ -3,7 +3,7 @@
  */
 export default function Footer() {
   return (
-    <footer className="app-footer mx-auto w-full max-w-lg px-6 pb-10 pt-8 text-center text-xs text-muted-foreground md:px-0">
+    <footer className="app-footer mx-auto w-full max-w-lg px-6 pb-10 pt-8 text-center text-xs text-muted-foreground">
       <p>
         Challenge by{" "}
         <a

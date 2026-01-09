@@ -20,7 +20,7 @@ const CustomCheckbox = ({ checked, onChange }) => {
         h-5 w-5 rounded-full
         border border-border
       data-[state=checked]:text-white
-        data-[state=checked]:border-transparent
+        data-[state=checked]:border--check-gradient
         data-[state=checked]:[background-image:var(--check-gradient)]
       "
     />

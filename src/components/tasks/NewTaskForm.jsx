@@ -79,7 +79,7 @@ const NewTaskForm = ({ onAddTask }) => { //destructuring the prop for the compon
         value={title}
         onChange={(event) => setTitle(event.target.value)}
         disabled={submitting}
-        className="flex-1 max-w-full w-xl"
+        className="flex-1"
       />
     </div>
       {/* <button type="submit"

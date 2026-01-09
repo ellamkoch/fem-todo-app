@@ -60,7 +60,7 @@
   --secondary: oklch(97% 0.001 106.424deg);
   --secondary-foreground: oklch(21.6% 0.006 56.043deg);
   --muted: oklch(97% 0.001 106.424deg);
-  --muted-foreground: hsl(233, 11%, 84%);   /*grey 300*/
+  --muted-foreground: hsl(236, 9%, 61%);   /*grey 600*/
   --accent: hsl(234 39% 85%);              /* purple 300 */
   --accent-foreground: hsl(235, 19%, 35%) /*navy 850*/
   --destructive: oklch(57.7% 0.245 27.325deg);
@@ -82,7 +82,7 @@
   --sidebar-ring: oklch(70.9% 0.01 56.259deg);
   --font-sans: "Josefin Sans", system-ui, sans-serif;
 
-  --check-gradient: linear-gradient(
+  --check-gradient: linear-gradient( 140deg,
     hsl(192 100% 67%),
     hsl(280 87% 65%)
 
@@ -124,7 +124,7 @@
   --sidebar-ring: oklch(55.3% 0.013 58.071deg);
   --font-sans: "Josefin Sans", system-ui, sans-serif;
 
-  --check-gradient: linear-gradient(
+  --check-gradient: linear-gradient( 140deg,
     hsl(192 100% 67%),
     hsl(280 87% 65%)
     );

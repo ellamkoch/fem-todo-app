@@ -4,7 +4,7 @@
  */
 export default function HeroBackground({ isDark }) {
   return (
-    <div className="pointer-events-none relative h-[200px] w-full overflow-hidden md:h-[300px]">
+    <div className="pointer-events-none relative h-[300px] w-full overflow-hidden">
       <img
         src={isDark
             ? "/images/bg-desktop-dark.jpg"

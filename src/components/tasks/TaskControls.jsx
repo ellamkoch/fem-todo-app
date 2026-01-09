@@ -8,7 +8,7 @@ import ClearCompleted from "@components/tasks/ClearCompleted.jsx";
 
 function TaskControls({ filter, setFilter, totalTasks, completedTasks, clearCompleted }) {
   return (
-    <div className="task-controls flex items-center justify-between px-2  text-xs text-muted-foreground border-t border-border">
+    <div className="task-controls flex items-center justify-between px-2 text-xs text-muted-foreground border-t border-border py-2">
 
         <TasksLeft //passes props numbers so TasksLeft can display "items left"
             totalTasks={totalTasks} //created a prop named totalTasks and gave it the value of the var totalTasks
