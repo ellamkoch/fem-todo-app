@@ -1,64 +1,112 @@
-# fem-todo-app
+# Frontend Mentor – Todo App
 
-This is the repo for the Front End Mentor To Do App Challenge for Week 5, Level 3 assignment with CodeX.
+This is my solution to the **Frontend Mentor Todo App challenge** , completed as part of **CodeX – Week 5, Level 3** .
 
-## Project Structure
+The project focuses on building a fully functional, theme-aware todo application using React, Supabase, and a component-driven styling approach.
 
-## Project Status
+The goal was to closely match the Frontend Mentor desktop design while keeping the codebase clean, readable, and maintainable.
 
-This project is currently in progress.
+---
 
-It is being updated from a Supabase + React task list into a styled Todo application based on the Frontend Mentor Todo App challenge.
+## Links
 
-### Current Progress
+* **Live Site:** *(add Netlify link here)*
+* **Repository:** [https://github.com/ellamkoch/fem-todo-app](https://github.com/ellamkoch/fem-todo-app)
 
-* Migrated styling from Bootstrap/SCSS toward **Tailwind CSS**
-* Installed and configured **shadcn UI**
-* Added reusable UI components (Button, Checkbox, Input)
-* Introduced path aliases using `jsconfig.json` and Vite
-* Updated Supabase Row Level Security (RLS) policies to support UI interactions
-* Cleaned up legacy Bootstrap dependencies and loaders
-* Updated lint scripts to support JSX and Tailwind-generated CSS
-* Implemented a global **theme system** (light / dark / system) using React Context
-* Persisted theme preference using localStorage
-* Connected Tailwind dark mode via the `dark` class on the document root
-* Aligned existing SCSS styles with theme tokens for theme-aware backgrounds and text
-* Refactored task UI into focused, reusable components (TaskList, TaskItem, TaskControls, Filters, TasksLeft)
-* Implemented **Clear Completed** functionality with Supabase + local state synchronization
-* Centralized task data logic in a custom `useTasks` hook
-* Integrated shadcn UI components into core interactions (buttons, inputs, checkboxes)
-* Refined layout and spacing to more closely match the Frontend Mentor design, focusing on tighter vertical rhythm and reduced padding
-* Resolved interaction and layering issues between the hero background and interactive UI elements
-* Improved accessibility with ARIA attributes and non-intrusive UI hints (tooltips)
-* * Resolved Supabase task persistence issues by correcting RLS insert/select policies and validating anonymous user context
-* Verified end-to-end task lifecycle (create, toggle, filter, delete) with Supabase persistence and local state updates
-* Removed legacy SCSS task/layout overrides to eliminate styling conflicts with Tailwind and shadcn UI
-* Centralized color and typography decisions into CSS theme tokens for consistent light and dark mode behavior
-* Tuned dark mode foreground and accent tokens to better align with Frontend Mentor design contrast guidelines
-* Implemented gradient-based checkbox styling using CSS variables and Radix state selectors
-* Refined filter interactions to ensure clear hover and active states across light and dark themes
-* Fixed filter logic inconsistencies (active vs completed) to ensure correct task visibility
-* Reduced redundant and no-op utility classes to simplify component-level styling and improve maintainability
-* Stabilized focus, hover, and keyboard interaction behavior across core UI elements
+---
 
-Some Stylelint warnings remain related to Tailwind/shadcn-specific at-rules. These are expected with the current configuration and do not affect application functionality. They will be addressed once styling work is finalized.
+## The Challenge
 
-## **Tech Stack**
+Users should be able to:
 
-- React (Vite)
-- Supabase
-- Tailwind CSS
-- shadcn UI
-- SCSS (legacy styles, gradually being aligned with theme tokens)
+* Add, complete, and delete todos
+* Filter tasks by **All / Active / Completed**
+* Clear all completed tasks
+* Toggle between **light, dark, and system** themes
+* Persist tasks using a backend (Supabase)
+* Experience consistent UI behavior across themes
 
-## Live Demo
+---
 
-Coming soon
+## Built With
 
-## Resources
+* React (Vite)
+* Supabase (database + Row Level Security)
+* Tailwind CSS
+* shadcn/ui
+* CSS theme tokens
+* Frontend Mentor design assets
 
-* Supabase Documentation - [https://supabase.com/docs/guides](https://supabase.com/docs/guides)
-* React documentation - [https://react.dev/reference/react](https://react.dev/reference/react)
-* Frontend Mentor Todo App Challenge: [https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
-* Shadcn/UI documentation - [https://ui.shadcn.com/docs/components](https://ui.shadcn.com/docs/components)
+---
+
+## Running the Project Locally
+
+To run this project locally:
+
+1. Clone the repository using the project’s GitHub URL.
+2. Install dependencies by running `npm install`.
+3. Create a `.env` file in the project root and add the following environment variables:
+
+   `VITE_SUPABASE_URL=your_supabase_url`
+
+   `VITE_SUPABASE_ANON_KEY=your_supabase_anon_key`
+4. Start the development server by running `npm run dev`.
+
+The application will be available at `http://localhost:5173`.
+
+## My Process
+
+This project started as a Supabase task list and evolved into a Frontend Mentor–style application through multiple refactors.
+
+Key focus areas included:
+
+* Migrating from legacy SCSS and Bootstrap styling to Tailwind and shadcn
+* Create at least 5 styled components from the app that was built in class
+* Centralizing theme behavior using CSS variables and tokens
+* Refactoring components to reduce duplicated styles and conflicting utilities
+* Fixing subtle UI issues caused by inherited defaults (hover states, spacing, font sizing)
+* Cleaning up layout behavior by adjusting shared component defaults instead of adding overrides
+
+A final cleanup pass focused on removing redundant Tailwind classes and ensuring styles were handled at the appropriate level (layout, component, or token).
+
+---
+
+## What I Learned
+
+* Small default styles in shared components can introduce unexpected visual spacing or hover behavior
+* Fixing UI issues at the source (tokens or base components) is more reliable than stacking overrides
+* Theme tokens such as `foreground`, `muted-foreground`, and `accent-foreground` should be used intentionally based on context
+* Centralizing responsibilities (for example, typography controlled by a parent component) simplifies maintenance
+* Light and dark mode issues are often token or inheritance related rather than component logic issues
+* How CSS tooling and linters can unintentionally conflict with Tailwind setups, particularly around modern at-rules and package-based imports.
+* How to evaluate linter warnings in the context of framework-driven CSS, and when it is appropriate to leave them unresolved to avoid breaking a working build.
+* How to use <> which is a React Fragment, to group elements without a wrapper.
+* Store repeated Tailwind class names in variables to reduce duplication and make active vs inactive states easier to read.
+
+---
+
+## Linting Note
+
+This project uses Tailwind CSS and shadcn/ui, which rely on modern CSS features and custom at-rules.
+
+As a result, Stylelint reports warnings related to unknown at-rules and modern color syntax. These warnings were reviewed and intentionally left unresolved, as auto-fixing them would conflict with Tailwind’s expected syntax. The application builds and functions correctly.
+
+## Continued Development
+
+If I revisit this project, I would:
+
+* Add drag-and-drop task reordering
+* Add mobile styling
+
+---
+
+## Useful Resources
+
+* Frontend Mentor challenge documentation [https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
+* shadcn/ui component patterns [https://ui.shadcn.com/docs/components](https://ui.shadcn.com/docs/components)
+* Tailwind CSS utility and token documentation [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+* Tailwind Crash Course [https://www.youtube.com/watch?v=dFgzHOX84xQ](https://www.youtube.com/watch?v=dFgzHOX84xQ)
+* React & Tailwind CSS Image Gallery [https://www.youtube.com/watch?v=FiGmAI5e91M](https://www.youtube.com/watch?v=FiGmAI5e91M)
+* React documents [https://react.dev/reference/react](https://react.dev/reference/react)
+* Thinking in React for breaking down the UI into components [https://react.dev/learn/thinking-in-react#step-1-break-the-ui-into-a-component-hierarchy](https://react.dev/learn/thinking-in-react#step-1-break-the-ui-into-a-component-hierarchy)
 
