@@ -3,9 +3,9 @@ function TasksLeft({ totalTasks, completedTasks }){
   const remaining = totalTasks - completedTasks;
 
   if (totalTasks === 0) return null;
-  
+
     return (
-        <p className="task-left text-sm text-muted-foreground">
+        <p className="task-left px-1 text-sm text-muted-foreground">
           {remaining} item{remaining !== 1 ? "s" : ""} left
         </p>
     );

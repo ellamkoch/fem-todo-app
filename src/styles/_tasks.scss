@@ -55,9 +55,9 @@
   list-style: none;
   margin: $space-md 0 0 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: $space-xs;
+  // display: flex;
+  // flex-direction: column;
+  // gap: $space-xs;
 }
 
 /**
@@ -69,15 +69,15 @@
   justify-content: space-between;
   gap: $space-sm;
   padding: $space-sm $space-md;
-  border-radius: $radius-md;
-  background-color: rgb(15, 23, 42, 0.75);
-  border: 1px solid transparent;
+  // border-radius: $radius-md;
+  // background-color: rgb(15, 23, 42, 0.75);
+  // border: 1px solid transparent;
   transition:
     background-color 0.15s ease-out,
     border-color 0.15s ease-out;
 
   &:hover {
-    background-color: rgb(15, 23, 42, 0.95);
+    // background-color: rgb(15, 23, 42, 0.95);
     border-color: $color-border-soft;
   }
 

@@ -30,6 +30,16 @@ It is being updated from a Supabase + React task list into a styled Todo applica
 * Refined layout and spacing to more closely match the Frontend Mentor design, focusing on tighter vertical rhythm and reduced padding
 * Resolved interaction and layering issues between the hero background and interactive UI elements
 * Improved accessibility with ARIA attributes and non-intrusive UI hints (tooltips)
+* * Resolved Supabase task persistence issues by correcting RLS insert/select policies and validating anonymous user context
+* Verified end-to-end task lifecycle (create, toggle, filter, delete) with Supabase persistence and local state updates
+* Removed legacy SCSS task/layout overrides to eliminate styling conflicts with Tailwind and shadcn UI
+* Centralized color and typography decisions into CSS theme tokens for consistent light and dark mode behavior
+* Tuned dark mode foreground and accent tokens to better align with Frontend Mentor design contrast guidelines
+* Implemented gradient-based checkbox styling using CSS variables and Radix state selectors
+* Refined filter interactions to ensure clear hover and active states across light and dark themes
+* Fixed filter logic inconsistencies (active vs completed) to ensure correct task visibility
+* Reduced redundant and no-op utility classes to simplify component-level styling and improve maintainability
+* Stabilized focus, hover, and keyboard interaction behavior across core UI elements
 
 Some Stylelint warnings remain related to Tailwind/shadcn-specific at-rules. These are expected with the current configuration and do not affect application functionality. They will be addressed once styling work is finalized.
 

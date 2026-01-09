@@ -17,10 +17,10 @@ export default function Header() {
 
 
   return (
-    <header className="app-header relative z-50 pointer-events-auto mx-auto flex w-full max-w-lg items-center justify-between gap-4 px-6 pt-10 md:px-0 md:pt-16">
+    <header className="app-header relative z-75 pointer-events-auto mx-auto flex w-full max-w-lg items-center justify-between gap-4 px-6 pt-10 md:px-0 md:pt-16">
       <Title
         hLevel={1}
-        className="text-3xl mb-3 font-semibold tracking-[0.4em] text-white md:text-4xl"
+        className="text-3xl font-semibold tracking-[0.4em] text-white md:text-4xl"
       >
         TODO
       </Title>

@@ -15,12 +15,13 @@ const CustomCheckbox = ({ checked, onChange }) => {
   return (
     <Checkbox
       checked={checked}
-      onChange={onChange}
+      onCheckedChange={onChange}
       className="
         h-5 w-5 rounded-full
         border border-border
+      data-[state=checked]:text-white
         data-[state=checked]:border-transparent
-        data-[state=checked]:bg-[var(--check-gradient)]
+        data-[state=checked]:[background-image:var(--check-gradient)]
       "
     />
   );

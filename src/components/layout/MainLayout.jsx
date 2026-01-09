@@ -20,7 +20,7 @@ function MainLayout({ children }) {
     <div className="min-h-screen bg-background ">
       <HeroBackground isDark={isDark} />
 
-      <div className="-mt-[200px] md:-mt-[300px] relative z-50 pointer-events-auto">
+      <div className="-mt-[200px] md:-mt-[300px] mb-15 relative z-75 pointer-events-auto">
 
         <div className="mx-auto w-full max-w-lg px-6 pt-10 md:px-0 md:pt-16">
           <Header />

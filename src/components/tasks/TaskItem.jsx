@@ -25,7 +25,7 @@ export default function TaskItem({ task, onToggleComplete, onDelete }) {
   };
 //within this, if a title is checked, the task is marked as complete. same as if the checkbox is checked.
   return (
-    <li className="task-item group flex items-center justify-between gap-3 px-4 ">
+    <li className="task-item group flex items-center justify-between gap-3 px-5 py-3">
       <label className="task-item__content flex flex-1 cursor-pointer items-center gap-3">
         <CustomCheckbox
           checked={task.is_complete}

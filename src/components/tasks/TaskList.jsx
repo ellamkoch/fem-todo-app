@@ -80,11 +80,11 @@ function TaskList() {
   return (
     // new todo section <> is an invisible react wrapper that allows the 1 parent rule, and doesnt render a div or anything in the dom. just allows things to be grouped together w/o markup.
     <>
-    <Card className="mt-6 overflow-hidden rounded-sm bg-card text-card-foreground shadow-sm">
+    <Card className="mt-6 rounded-[4px] border-0 shadow-lg">
       <NewTaskForm onAddTask={handleAddTask} />
     </Card>
 
-   <Card className="mt-6 overflow-hidden rounded-sm bg-card text-card-foreground shadow-sm">
+   <Card className="mt-6 overflow-hidden rounded-[4px] border-0 shadow-lg">
       {error && (
         <p className="error-text px-4 py-3 text-sm text-destructive">
           {error}
@@ -108,7 +108,7 @@ function TaskList() {
           ))}
         </div>
       ) : (
-        <ul className="task-list divide-y divide-border">
+        <ul className="task-list rounded-[4px] divide-y divide-border">
           {visibleTasks.map((task) => (
             <TaskItem
               key={task.id}
