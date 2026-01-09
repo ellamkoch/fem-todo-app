@@ -2,7 +2,7 @@
 //react import
 import { useState } from "react";
 //component imports
-import Input from "@components/shared/input.component";
+import Input from "@components/shared/Input.component";
 
 
 /**
