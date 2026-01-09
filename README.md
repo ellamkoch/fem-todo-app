@@ -10,7 +10,7 @@ The goal was to closely match the Frontend Mentor desktop design while keeping t
 
 ## Links
 
-* **Live Site:** *(add Netlify link here)*
+* **Live Site:** [https://emk-fem-todo-app.netlify.app/](https://emk-fem-todo-app.netlify.app/)]
 * **Repository:** [https://github.com/ellamkoch/fem-todo-app](https://github.com/ellamkoch/fem-todo-app)
 
 ---
