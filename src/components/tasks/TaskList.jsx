@@ -84,7 +84,7 @@ function TaskList() {
       <NewTaskForm onAddTask={handleAddTask} />
     </Card>
 
-   <Card className="mt-6 overflow-hidden rounded-[4px] shadow-lg">
+   <Card className="mt-6 overflow-hidden rounded-[4px] shadow-lg" role="alert">
       {error && (
         <p className="error-text px-4 py-3 text-sm text-destructive">
           {error}

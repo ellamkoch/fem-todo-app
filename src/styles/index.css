@@ -62,7 +62,7 @@
   --muted: oklch(97% 0.001 106.424deg);
   --muted-foreground: hsl(236deg, 9%, 61%);   /* grey 600 */
   --accent: hsl(234deg 39% 85%);              /* purple 300 */
-  --accent-foreground: hsl(235deg, 19%, 35%) /*navy 850*/
+  --accent-foreground: hsl(235deg, 19%, 35%); /*navy 850*/
   --destructive: oklch(57.7% 0.245 27.325deg);
   --border: hsl(233deg 11% 84%);      /* grey 300 */
   --input:  hsl(0deg 0% 98%);  /* grey 50 */

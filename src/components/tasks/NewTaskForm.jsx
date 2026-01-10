@@ -87,7 +87,7 @@ const NewTaskForm = ({ onAddTask }) => { //destructuring the prop for the compon
         {submitting ? "Adding…" : "Add"}
       </button> */}
 
-      {error && <p className="error-text px-5 pb-4 text-sm text-destructive">{error}</p>}
+      {error && <p className="error-text px-5 pb-4 text-sm text-destructive" role="alert">{error}</p>}
     </form>
   );
 };
