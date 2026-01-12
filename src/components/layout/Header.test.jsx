@@ -45,7 +45,7 @@ describe('Header', () => {
 
     // Initial theme is dark -> button invites switching to Light Mode
     expect(
-      screen.getByText(/Change to Dark Mode/)
+      screen.getByRole("button", { name: /change to dark mode/i })
     ).toBeInTheDocument();
 
     // await waitFor(() => {

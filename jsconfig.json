@@ -1,4 +1,4 @@
-//This file has aliases within it. Whenver you import something in a vite project, this can reference the components to make importing files easier.
+//This file has aliases within it. Whenever you import something in a vite project, this can reference the components to make importing files easier.
 // It defines the path or alias names and where they're located.
 {
     "compilerOptions": {
