@@ -22,6 +22,7 @@ resolve: {
       '@assets': path.resolve(__dirname, './src/assets'),
       '@tests': path.resolve(__dirname, './src/tests'),
       '@utils': path.resolve(__dirname, './src/utils'),
+      '@providers': path.resolve(__dirname, './src/providers')
     },
   },
 });
