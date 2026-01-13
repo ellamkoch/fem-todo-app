@@ -198,7 +198,7 @@ describe('useTasks (SupabaseMock)', () => {
     expect(sb.insert).toHaveBeenCalledWith([{ title: "New Task", is_complete: false }]);
   });
 
-  test('toggle task and update the local sate', async () => {
+  test('toggle task and update the local state', async () => {
     const user = userEvent.setup();
 
     sb.order.mockResolvedValueOnce({

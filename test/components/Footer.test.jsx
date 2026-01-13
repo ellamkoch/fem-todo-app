@@ -4,7 +4,7 @@ import { describe,expect, test } from 'vitest';
 import { render, screen } from "@testing-library/react";
 // import userEvent from "@testing-library/user-event";
 
-import Footer from "./Footer.jsx";
+import Footer from "@components/layout/Footer.jsx";
 // import { ThemeProvider } from '@providers/themeProvider';
 // import { STORAGE_KEY } from "@/constants/themeConstants";
 
