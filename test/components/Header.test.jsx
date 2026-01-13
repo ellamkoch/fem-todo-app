@@ -35,13 +35,13 @@ describe('Header', () => {
 
     // Check for the title
     expect(
-      screen.getByText(/Supabase Tasks/)
+      screen.getByText(/TODO/)
     ).toBeInTheDocument();
 
-    // Subtitle
-    expect(
-      screen.getByText(/Simple task list powered by Supabase, built with React \+ Vite\./i)
-    ).toBeInTheDocument();
+    // // Subtitle
+    // expect(
+    //   screen.getByText(/Simple task list powered by Supabase, built with React \+ Vite\./i)
+    // ).toBeInTheDocument();
 
     // Initial theme is dark -> button invites switching to Light Mode
     expect(

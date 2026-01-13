@@ -93,13 +93,24 @@ import { useTasks } from "@hooks/useTasks";
  */
 function TasksHarness() {
   const { tasks, loading, error, addTask, toggleTask, deleteTask } = useTasks();
+  const [actionError, setActionError] = React.useState(null);
+
+  const handleAdd = async () => {
+    setActionError(null);
+    try {
+      await addTask("New Task");
+    } catch (e) {
+      setActionError(e.message || "Action failed");
+    }
+  };
 
   return (
     <div>
       {loading && <p>Loading...</p>}
       {error && <p role="alert">{error}</p>}
+      {actionError && <p role="alert">{actionError}</p>}
 
-      <button type="button" onClick={() => addTask("New Task")}>
+      <button type="button" onClick={handleAdd}>
         Add Task
       </button>
 
@@ -239,4 +250,28 @@ describe('useTasks (SupabaseMock)', () => {
     expect(sb.del).toHaveBeenCalled();
     expect(sb.deleteEq).toHaveBeenCalledWith("id", 3);
   });
+  //add task error test
+  test("shows an error alert when addTask fails", async () => {
+  const user = userEvent.setup();
+
+  sb.order.mockResolvedValueOnce({ data: [], error: null });
+
+  sb.insertSelect.mockResolvedValueOnce({
+    data: null,
+    error: { message: "Insert failed" }
+  });
+
+  render(<TasksHarness />);
+
+  await waitFor(() =>
+    expect(screen.queryByText(/Loading.../i)).not.toBeInTheDocument()
+  );
+
+  await user.click(screen.getByRole("button", { name: /add task/i }));
+
+  expect(await screen.findByRole("alert")).toHaveTextContent(/insert failed/i);
+
+  // ensure it didn't add
+  expect(screen.queryByText("New Task - todo")).not.toBeInTheDocument();
+});
 });
