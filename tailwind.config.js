@@ -1,10 +1,7 @@
 //This file is where we modify default styles for tailwind
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
       sans: ["Josefin Sans", "ui-sans-serif", "system-ui"],
@@ -19,5 +16,9 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant("dark", "&:is(.dark *)");
+    },
+  ],
 };

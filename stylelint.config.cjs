@@ -7,8 +7,7 @@
 
 /** @type {import("stylelint").Config} */
 module.exports = {
-  extends: ["stylelint-config-standard",
-    "stylelint-config-recommended-scss"],
+  extends: ["stylelint-config-standard", "stylelint-config-recommended-scss"],
 
   rules: {
     // Disallow invalid hex colors
@@ -20,10 +19,24 @@ module.exports = {
     // Allow camelCase class
     "selector-class-pattern": null,
 
-    "at-rule-no-unknown": [true, { ignoreAtRules: ["use", "forward", "mixin", "include", "function"] }],
+    "at-rule-no-unknown": [
+      true,
+      {
+        ignoreAtRules: [
+          "use",
+          "forward",
+          "mixin",
+          "include",
+          "function",
+          "custom-variant",
+          "theme",
+          "apply",
+        ],
+      },
+    ],
 
     // Allow rgba
-    "color-function-notation": "legacy",
+    "color-function-notation": "modern",
     // "color-function-alias-notation": "legacy",
 
     // Allow percentages to be decimal numbers rather than strings
@@ -31,5 +44,19 @@ module.exports = {
 
     // Skip scss/no-global-function-names
     "scss/no-global-function-names": null,
-  }
+
+    "scss/at-rule-no-unknown": [
+      true,
+      { ignoreAtRules: ["custom-variant", "theme", "apply"] },
+    ],
+
+    // Allow comments without spaces
+    "comment-whitespace-inside": null,
+
+    // Allow declarations without empty lines before
+    "declaration-empty-line-before": null,
+
+    // Allow string notation for imports
+    "import-notation": "string",
+  },
 };
