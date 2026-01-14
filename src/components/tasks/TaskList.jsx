@@ -2,15 +2,19 @@
 // - useState: stores UI state (like the filter button you picked)
 // - useMemo: calculates “derived values” (totals + filtered list) only when needed
 import { useState, useMemo } from "react";
-//boostrap import
-import Spinner from 'react-bootstrap/Spinner';
 
 //child component imports
-import TaskItem from "./TaskItem.jsx";
-import NewTaskForm from "./NewTaskForm.jsx";
-//custom hook import
+import TaskItem from "@components/tasks/TaskItem.jsx";
+import NewTaskForm from "@components/tasks/NewTaskForm.jsx";
+import TaskControls from "@components/tasks/TaskControls.jsx";
 
-import { useTasks } from "../../hooks/useTasks.js";
+//custom hook import
+import { useTasks } from "@hooks/useTasks.js";
+
+//shadcn imports
+import { Card } from "@components/ui/card";
+// import { Separator } from "@components/ui/separator";
+import { Skeleton } from "@components/ui/skeleton";
 
 /**
  * TaskList (Day 4):
@@ -29,7 +33,8 @@ function TaskList() {
     error, //error msg string if something fails
     addTask, //helper functions that talk to supabase to add/toggle or delete tasks
     toggleTask,
-    deleteTask
+    deleteTask,
+    clearCompleted
   } = useTasks();
 
   /**
@@ -61,8 +66,7 @@ function TaskList() {
   };
 
   // Derived summary information based on current tasks.
-  // useMemo is for values
-  // useCallback is for functions
+  // useMemo is for remembering values & useCallback is for functions
   const totalTasks = useMemo(() => tasks.length, [tasks]);
   const completedTasks = useMemo(() => tasks.filter((task) => task.is_complete).length, [tasks]);
 
@@ -71,63 +75,40 @@ function TaskList() {
     if (filter === "active") return !task.is_complete;
     if (filter === "completed") return task.is_complete;
     return true;
-  }), [tasks, filter]);
+  }), [tasks, filter]);//dependency array
 
   return (
-    <section className="card">
-      <h2 className="color-white">Tasks</h2>
-
+    // new todo section <> is an invisible react wrapper that allows the 1 parent rule, and doesnt render a div or anything in the dom. just allows things to be grouped together w/o markup.
+    <>
+    <Card className="mt-6 rounded-[4px] shadow-lg">
       <NewTaskForm onAddTask={handleAddTask} />
+    </Card>
 
-      {/* Filter controls */}
-      <div style={{ marginBottom: "0.75rem", fontSize: "0.9rem" }}>
-        <span style={{ marginRight: "0.5rem" }}>Filter:</span>
-        <button
-          type="button"
-          onClick={() => setFilter("all")}
-          style={{
-            marginRight: "0.25rem",
-            fontWeight: filter === "all" ? "600" : "400"
-          }}
-        >
-          All
-        </button>
-        <button
-          type="button"
-          onClick={() => setFilter("active")}
-          style={{
-            marginRight: "0.25rem",
-            fontWeight: filter === "active" ? "600" : "400"
-          }}
-        >
-          Active
-        </button>
-        <button
-          type="button"
-          onClick={() => setFilter("completed")}
-          style={{
-            fontWeight: filter === "completed" ? "600" : "400"
-          }}
-        >
-          Completed
-        </button>
-      </div>
+   <Card className="mt-6 overflow-hidden rounded-[4px] shadow-lg" role="alert">
+      {error && (
+        <p className="error-text px-4 py-3 text-sm text-destructive">
+          {error}
+        </p>
+      )}
 
-      {error && <p className="error-text">{error}</p>}
-
-      {!loading && !error && tasks.length === 0 && <p>No tasks yet.</p>}
-
-      {totalTasks > 0 && (
-        <p className="task-summary">
-          <strong>{totalTasks}</strong> tasks ·{" "}
-          <strong>{completedTasks}</strong> completed
+      {!loading && !error && tasks.length === 0 && (
+        <p className="no-tasks px-4 py-6 text-center text-sm text-muted-foreground">
+          No items yet
         </p>
       )}
 
       {loading ? (
-        <Spinner animation="border" />
+        <div className="divide-y divide-border">
+          {Array.from({ length: 4 }).map((_, i) => (//map tells it to make 4 empty slots for the skeleton
+          //_ means we don't care about the value, i is index
+            <div key={i} className="flex items-center gap-3 px-4 py-4">
+              <Skeleton className="h-5 w-5 rounded-full" />
+              <Skeleton className="h-4 w-full max-w-90px" />
+            </div>
+          ))}
+        </div>
       ) : (
-        <ul className="task-list">
+        <ul className="task-list divide-y divide-border">
           {visibleTasks.map((task) => (
             <TaskItem
               key={task.id}
@@ -138,8 +119,17 @@ function TaskList() {
           ))}
         </ul>
       )}
-    </section>
-  );
-};
+      {/* Filter controls - passing vars to props here. */}
+       <TaskControls
+        filter={filter}
+        setFilter={setFilter}
+        totalTasks={totalTasks}
+        completedTasks={completedTasks}
+        clearCompleted={clearCompleted}
+      />
+    </Card>
+  </>
+);
+}
 
 export default TaskList;

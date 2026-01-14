@@ -1,3 +1,5 @@
+//import custom component
+import CustomCheckbox from "@components/shared/Checkbox.component";
 /**
  * Displays a single task as a list item with toggle and delete actions
  *
@@ -23,18 +25,17 @@ export default function TaskItem({ task, onToggleComplete, onDelete }) {
   };
 //within this, if a title is checked, the task is marked as complete. same as if the checkbox is checked.
   return (
-    <li className="task-item">
-      <label className="task-item__content">
-        <input
-          type="checkbox"
+    <li className="task-item group flex items-center justify-between gap-3 px-5 py-3">
+      <label className="task-item__content text-sm flex flex-1 cursor-pointer items-center gap-3">
+        <CustomCheckbox
           checked={task.is_complete}
           onChange={handleToggle}
         />
         <span
           className={
             task.is_complete
-              ? "task-item__title task-item__title--done"
-              : "task-item__title"
+              ? "task-item__title text-muted-foreground line-through"
+              : "task-item__title text-foreground"
           }
         >
           {task.title}
@@ -42,7 +43,7 @@ export default function TaskItem({ task, onToggleComplete, onDelete }) {
       </label>
       <button
         type="button"
-        className="task-item__delete"
+        className="task-item__delete text-muted-foreground hover:text-foreground"
         onClick={handleDelete}
         aria-label="Delete task"
       >

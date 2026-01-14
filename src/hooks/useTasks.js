@@ -10,7 +10,7 @@
 // react imports
 import { useCallback, useEffect, useState } from "react";
 // supabase client
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "@lib/supabaseClient";
 
 function useTasks() {
   // local state owned by the hook
@@ -107,6 +107,21 @@ function useTasks() {
       prev.filter((task) => task.id !== id)
     );
   }, []);
+  //Clear completed Tasks button
+  const clearCompleted = useCallback(async () => {
+  const { error } = await supabase
+    .from("tasks")
+    .delete()
+    .eq("is_complete", true);
+
+  if (error) {
+    console.error(error);
+    throw error;
+  }
+
+  // Remove completed tasks locally so UI updates immediately
+  setTasks((prev) => prev.filter((task) => !task.is_complete));
+}, []);
 
   // initial load when hook is first used
  useEffect(() => {
@@ -167,7 +182,8 @@ function useTasks() {
     error,
     addTask,
     toggleTask,
-    deleteTask
+    deleteTask,
+    clearCompleted
   };
 }
 
