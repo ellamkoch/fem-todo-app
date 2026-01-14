@@ -85,12 +85,6 @@ A final cleanup pass focused on removing redundant Tailwind classes and ensuring
 
 ---
 
-## Linting Note
-
-This project uses Tailwind CSS and shadcn/ui, which rely on modern CSS features and custom at-rules.
-
-As a result, Stylelint reports warnings related to unknown at-rules and modern color syntax. These warnings were reviewed and intentionally left unresolved, as auto-fixing them would conflict with Tailwind’s expected syntax. The application builds and functions correctly.
-
 ## Continued Development
 
 If I revisit this project, I would:
