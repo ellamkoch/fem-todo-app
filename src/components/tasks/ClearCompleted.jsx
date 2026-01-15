@@ -8,7 +8,7 @@ function ClearCompleted({ completedTasks, clearCompleted }) {
   return (
     <Button
       type="button"
-      variant="ghost"
+      variant="gradient"
       onClick={clearCompleted}
       disabled={isDisabled}
       className="text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50"

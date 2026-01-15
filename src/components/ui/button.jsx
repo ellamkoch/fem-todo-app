@@ -19,6 +19,9 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-transparent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        gradient:
+          "[background-image:var(--check-gradient)] text-secondary-foreground hover:[background-image:var(--check-gradient)] hover:text-accent-foreground focus-visible:ring-primary focus-visible:ring-offset-2",
+
       },
       size: {
         default: "h-9 px-4  has-[>svg]:px-3",

@@ -12,7 +12,7 @@ function Filters ({ filter, setFilter}) {
         <div className="filter-btns flex items-center gap-2">
             <Button
                 type="button"
-                variant="ghost"
+                variant="gradient"
                 onClick={() => setFilter("all")}
                 aria-pressed={filter === "all"}
                 className={`${allBtn} ${filter === "all" ? activeBtn : inactiveBtn}`}
@@ -41,4 +41,4 @@ function Filters ({ filter, setFilter}) {
 
 export default Filters;
 
-{/* <div style={{ marginBottom: "0.75rem", fontSize: "0.9rem" }}> - was on the div styles before*/}
+
