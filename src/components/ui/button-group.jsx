@@ -1,3 +1,8 @@
+/**
+ * Button group components.
+ * @see cn - ClassName utility
+ * @see Separator - Separator component
+ */
 import { cva } from 'class-variance-authority';
 import { Slot } from 'radix-ui';
 

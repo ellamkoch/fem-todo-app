@@ -1,5 +1,5 @@
 /**
- * Application footer with a short attribution.
+ * App footer with attribution.
  */
 export default function Footer() {
   return (

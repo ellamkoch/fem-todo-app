@@ -1,11 +1,13 @@
-// This file defines the Shared theme context + storage key (used by ThemeProvider/useTheme) to save the theme in localStorage.
-//theme itself lives in ThemeProvider
+/**
+ * Application constants.
+ * @see ThemeProvider - Uses ThemeContext and THEME_STORAGE_KEY
+ * @see useTheme - Consumes ThemeContext
+ * @see useTasks - Uses TODO_STORAGE_KEY
+ */
+import { createContext } from 'react';
 
-import { createContext } from 'react'; // using Context as its a way to share state w/ react
-
-const ThemeContext = createContext(null); //creates a shared container that may hold theme data
-const THEME_STORAGE_KEY = 'theme'; // string constant that avoids hardcoding theme
-
+const ThemeContext = createContext(null);
+const THEME_STORAGE_KEY = 'theme';
 const TODO_STORAGE_KEY = 'todo:v1';
 
 export { ThemeContext, THEME_STORAGE_KEY, TODO_STORAGE_KEY };

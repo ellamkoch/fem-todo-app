@@ -1,21 +1,18 @@
-// Import the structured elements
+/**
+ * Main layout wrapper.
+ * @see Header - App header with theme toggle
+ * @see Footer - App footer
+ * @see HeroBackground - Top background image
+ * @see useTheme - Accesses theme state
+ */
 import Header from '@components/layout/Header';
 import Footer from '@components/layout/Footer';
 import HeroBackground from '@components/layout/HeroBackground';
-
-//import hooks
 import { useTheme } from '@hooks/useTheme';
 
-// In JSX and React, when a function receives a param, we call it a prop
-/**
- * MainLayout wraps pages with a shared header and footer.
- *
- * @param {object} props - Component props.
- * @param {React.ReactNode} props.children - Page content.
- */
 function MainLayout({ children }) {
   const { theme } = useTheme();
-  const isDark = theme === 'dark'; // reading the theme set by user
+  const isDark = theme === 'dark';
   return (
     <div className="min-h-screen bg-background ">
       <HeroBackground isDark={isDark} />

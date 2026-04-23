@@ -1,6 +1,7 @@
-/* Input.component.jsx */
-//This file is for an input component that has a reusable structure.
-
+/**
+ * Reusable input component.
+ * @see Input - shadcn input component
+ */
 const Input = ({
   id,
   type = 'text',

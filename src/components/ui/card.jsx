@@ -1,3 +1,7 @@
+/**
+ * Card components.
+ * @see cn - ClassName utility
+ */
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';

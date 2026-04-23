@@ -1,17 +1,15 @@
-// React hooks imports:
-// - useState: stores UI state (like the filter button you picked)
-// - useMemo: calculates “derived values” (totals + filtered list) only when needed
+/**
+ * Main task list container.
+ * @see useTasks - Task state management hook
+ * @see NewTaskForm - Task creation form
+ * @see TaskItem - Individual task display
+ * @see TaskControls - Filter and clear controls
+ */
 import { useState, useMemo } from 'react';
-
-//child component imports
 import TaskItem from '@components/tasks/TaskItem.jsx';
 import NewTaskForm from '@components/tasks/NewTaskForm.jsx';
 import TaskControls from '@components/tasks/TaskControls.jsx';
-
-//custom hook import
 import { useTasks } from '@hooks/useTasks.js';
-
-//shadcn imports
 import { Card } from '@components/ui/card';
 
 /**
@@ -22,49 +20,30 @@ import { Card } from '@components/ui/card';
  *  - Displays summary information.
  */
 function TaskList() {
-  // UI-only state: tells which filter button is selected
-  const [filter, setFilter] = useState('all'); // "all" | "active" | "completed"
+  const [filter, setFilter] = useState('all');
 
   // Destructuring values from the custom hook.
   const {
-    tasks, // our list of tasks (array of objects)
-    addTask, // helper functions that update localStorage and state
+    tasks,
+    addTask,
     toggleTask,
     deleteTask,
     clearCompleted,
   } = useTasks();
 
-  /**
-   * Adds a new task by inserting it into localStorage and updating local state.
-   *
-   * @param {string} title - Title of the new task.
-   */
   const handleAddTask = (title) => {
-    // Forwards to hook, which saves the new task into localStorage.
     addTask(title);
   };
 
-  /**
-   * Toggles the is_complete flag of a task in localStorage and local state.
-   *
-   * @param {string} id - Task ID.
-   * @param {boolean} isComplete - Desired completion state.
-   */
   const handleToggleComplete = (id, isComplete) => {
     toggleTask(id, isComplete);
   };
 
-  /**
-   * Deletes a task by id from localStorage and local state.
-   *
-   * @param {string} id - Task ID.
-   */
   const handleDeleteTask = (id) => {
     deleteTask(id);
   };
 
   // Derived summary information based on current tasks.
-  // useMemo is for remembering values & useCallback is for functions
   const totalTasks = useMemo(() => tasks.length, [tasks]);
   const completedTasks = useMemo(() => tasks.filter((task) => task.is_complete).length, [tasks]);
 
@@ -77,7 +56,7 @@ function TaskList() {
         return true;
       }),
     [tasks, filter],
-  ); //dependency array
+  );
 
   const emptyMessage =
     filter === 'active'
@@ -87,7 +66,6 @@ function TaskList() {
         : 'No todos yet';
 
   return (
-    // new todo section <> is an invisible react wrapper that allows the 1 parent rule, and doesn't render a div or anything in the dom. just allows things to be grouped together w/o markup.
     <>
       <Card className="mt-6 rounded-[4px] shadow-lg">
         <NewTaskForm onAddTask={handleAddTask} />
@@ -110,7 +88,6 @@ function TaskList() {
             ))}
           </ul>
         )}
-        {/* Filter controls - passing vars to props here. */}
         <TaskControls
           filter={filter}
           setFilter={setFilter}

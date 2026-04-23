@@ -1,5 +1,8 @@
 /**
- * Header with global theme toggle (light / dark mode)
+ * App header with title, navigation, and theme toggle.
+ * @see ThemeToggle - Theme switch button
+ * @see NavButtons - Navigation links
+ * @see useTheme - Accesses theme state
  */
 import ThemeToggle from '@components/shared/ThemeToggle.component';
 import Heading from '@components/shared/Heading.component';
@@ -7,10 +10,8 @@ import { useTheme } from '@hooks/useTheme';
 import NavButtons from '@components/shared/NavButtons.component';
 
 export default function Header() {
-  //used to access the global theme state of light/dark mode
   const { theme, setTheme } = useTheme();
   const isDark = theme === 'dark';
-  //toggle between light/dark modes
   const handleThemeChange = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };

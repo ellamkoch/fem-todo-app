@@ -1,4 +1,6 @@
-//This file handles the logic of counting the tasks left and the display of how many tasks are left
+/**
+ * Displays remaining task count.
+ */
 function TasksLeft({ totalTasks, completedTasks }) {
   const remaining = totalTasks - completedTasks;
 

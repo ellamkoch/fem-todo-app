@@ -1,6 +1,5 @@
 /**
- * HeroBackground
- * Shows the top background image (switches based on theme).
+ * Hero background image that switches based on theme.
  */
 export default function HeroBackground({ isDark }) {
   return (

@@ -1,9 +1,11 @@
+/**
+ * Theme toggle button with tooltip.
+ * @see Button - shadcn button component
+ * @see Tooltip - Tooltip components
+ */
 import { Button } from '@components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@components/ui/tooltip';
-/**
- * ThemeToggle
- * Icon-only button. Theme logic lives in Header/ThemeProvider.
- */
+
 export default function ThemeToggle({ isDark, onToggle }) {
   return (
     <TooltipProvider delayDuration={200}>

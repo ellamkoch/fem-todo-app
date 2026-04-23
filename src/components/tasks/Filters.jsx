@@ -1,11 +1,13 @@
-//This file is a group of toggle buttons at the bottom of the task list that changes how the list is filtered.
+/**
+ * Filter buttons (All / Active / Completed).
+ * @see Button - shadcn button component
+ */
 import { Button } from '../ui/button';
 
 function Filters({ filter, setFilter }) {
-  //storing tailwind styles in variables here for easier styling
-  const allBtn = 'px-1'; // for all buttons
-  const activeBtn = 'text-primary'; //for active button styling
-  const inactiveBtn = 'text-muted-foreground hover:text-foreground'; //hover/inactive colors
+  const allBtn = 'px-1';
+  const activeBtn = 'text-primary';
+  const inactiveBtn = 'text-muted-foreground hover:text-foreground';
 
   return (
     <div className="filter-btns flex items-center gap-2">

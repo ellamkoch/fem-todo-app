@@ -1,30 +1,18 @@
-//import custom component
-import CustomCheckbox from '@components/shared/Checkbox.component';
 /**
- * Displays a single task as a list item with toggle and delete actions
- *
- * @param {object} props
- * @param {{ id: number, title: string, is_complete: boolean, inserted_at?: string }} props.task
- * @param {(id: number) => void} props.onToggleComplete
- * @param {(id: number) => void} props.onDelete
+ * Individual task list item.
+ * @see CustomCheckbox - Styled checkbox component
  */
+import CustomCheckbox from '@components/shared/Checkbox.component';
+
 export default function TaskItem({ task, onToggleComplete, onDelete }) {
-  /**
-   * Handles checkbox changes and notifies the parent component.
-   */
   const handleToggle = () => {
-    //local helper that calls the parent callback onToggleComplete
-    onToggleComplete(task.id, !task.is_complete); //sends the task id and new completed value
-    //so the parent can update the database and state accordingly.
+    onToggleComplete(task.id, !task.is_complete);
   };
 
-  /**
-   * Handles delete button clicks and notifies the parent component.
-   */
   const handleDelete = () => {
     onDelete(task.id);
   };
-  //within this, if a title is checked, the task is marked as complete. same as if the checkbox is checked.
+
   return (
     <li className="task-item group flex items-center justify-between gap-3 px-5 py-3">
       <label className="task-item__content text-sm flex flex-1 cursor-pointer items-center gap-3">

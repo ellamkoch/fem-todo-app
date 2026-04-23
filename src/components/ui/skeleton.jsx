@@ -1,3 +1,7 @@
+/**
+ * Skeleton loading component.
+ * @see cn - ClassName utility
+ */
 import { cn } from '@/lib/utils';
 
 function Skeleton({ className, ...props }) {

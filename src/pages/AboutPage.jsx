@@ -1,6 +1,8 @@
-// AboutPage.jsx
-// A concise project overview page for the todo app.
-
+/**
+ * About page with project overview.
+ * @see Heading - Heading component
+ * @see Card - Card component
+ */
 import { Link } from 'react-router-dom';
 
 import Heading from '@components/shared/Heading.component';
@@ -30,11 +32,6 @@ const aboutSections = [
   },
 ];
 
-/**
- * AboutPage renders a concise overview of the project and a link back home.
- *
- * @returns {JSX.Element}
- */
 function AboutPage() {
   return (
     <Card className="mt-6 flex gap-3 overflow-hidden rounded-[4px] px-5 py-3 shadow-lg">

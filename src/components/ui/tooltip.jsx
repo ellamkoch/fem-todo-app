@@ -1,3 +1,7 @@
+/**
+ * Tooltip components.
+ * @see cn - ClassName utility
+ */
 import * as React from 'react';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 

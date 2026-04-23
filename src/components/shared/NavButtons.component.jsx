@@ -1,6 +1,8 @@
-//NavButtons.component.jsx
-//This is simple button group for the Nav Bar at the top of the page to help the user navigate.
-
+/**
+ * Navigation buttons for the header.
+ * @see Button - shadcn button component
+ * @see ButtonGroup - Button group component
+ */
 import { NavLink } from 'react-router-dom';
 import { Button } from '@components/ui/button';
 import { ButtonGroup, ButtonGroupSeparator } from '@components/ui/button-group';

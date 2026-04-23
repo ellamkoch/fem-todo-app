@@ -1,3 +1,7 @@
+/**
+ * Button component with variants.
+ * @see cn - ClassName utility
+ */
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';

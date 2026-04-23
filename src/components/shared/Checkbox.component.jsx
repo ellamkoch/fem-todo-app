@@ -1,17 +1,10 @@
 /**
- * CustomCheckbox
- * Wrapper around shadcn Checkbox to apply consistent styling.
- *
- * @param {boolean} checked - Whether the checkbox is checked
- * @param {(checked: boolean) => void} onChange - Called when checkbox toggles
+ * Custom checkbox with consistent styling.
+ * @see Checkbox - shadcn checkbox component
  */
-
 import { Checkbox } from "@/components/ui/checkbox";
 
-
-
 const CustomCheckbox = ({ checked, onChange }) => {
-
   return (
     <Checkbox
       checked={checked}
@@ -28,6 +21,3 @@ const CustomCheckbox = ({ checked, onChange }) => {
 };
 
 export default CustomCheckbox;
-//h-5 w-5 rounded-full makes the check box a circle
-//transparent line means the ring disappears when its checked.
-//2nd checked line means that its doing the gradient color from the index.css

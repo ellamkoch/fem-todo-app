@@ -1,3 +1,7 @@
+/**
+ * Separator component.
+ * @see cn - ClassName utility
+ */
 import * as React from 'react';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 

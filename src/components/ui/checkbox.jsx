@@ -1,3 +1,7 @@
+/**
+ * Checkbox component.
+ * @see cn - ClassName utility
+ */
 import * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { CheckIcon } from 'lucide-react';
