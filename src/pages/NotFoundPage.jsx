@@ -3,7 +3,7 @@
 // regardless of theme changes (theme is handled globally by ThemeProvider).
 
 import { Card } from '@components/ui/card';
-import Title from '@/components/shared/Heading.component';
+import Heading from '@components/shared/Heading.component';
 import { Link } from 'react-router-dom';
 
 /**
@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 function NotFoundPage() {
   return (
     <Card className="flex mt-6 px-5 py-3 gap-3 rounded-[4px] shadow-lg overflow-hidden">
-      <Title>404 - Not Found</Title>
+      <Heading hLevel={1}>404 - Not Found</Heading>
       <p className="text-m">
         Like the droids you were looking for, the page you were looking for is not here.
       </p>

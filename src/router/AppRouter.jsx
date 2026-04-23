@@ -4,8 +4,8 @@
 
 import { Routes, Route } from 'react-router-dom';
 
-import NotFoundPage from '@/pages/NotFoundPage';
-import AboutPage from '@/pages/AboutPage';
+import AboutPage from '@pages/AboutPage';
+import NotFoundPage from '@pages/NotFoundPage';
 import TaskList from '@components/tasks/TaskList';
 
 function AppRouter() {

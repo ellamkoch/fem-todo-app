@@ -2,7 +2,7 @@
  * Header with global theme toggle (light / dark mode)
  */
 import ThemeToggle from '@components/shared/ThemeToggle.component';
-import Title from '@components/shared/Title.component';
+import Heading from '@components/shared/Heading.component';
 import { useTheme } from '@hooks/useTheme';
 import NavButtons from '@components/shared/NavButtons.component';
 
@@ -17,9 +17,9 @@ export default function Header() {
 
   return (
     <header className="app-header relative z-75 pointer-events-auto mx-auto flex w-full max-w-lg items-center justify-between gap-4 px-6 pt-10 md:px-0 md:pt-16">
-      <Title hLevel={1} className="text-4xl font-semibold tracking-[0.4em] text-white">
+      <Heading hLevel={1} className="text-4xl font-semibold tracking-[0.4em] text-white">
         TODO
-      </Title>
+      </Heading>
       <NavButtons />
       <ThemeToggle isDark={isDark} onToggle={handleThemeChange} />
     </header>
