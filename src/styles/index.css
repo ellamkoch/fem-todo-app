@@ -1,10 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-/* Custom variants */
+/* ---break--- */
 @custom-variant dark (&:is(.dark *));
 
-/* Theme definitions */
-@theme {
+/* ---break--- */
+@theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -45,7 +46,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Light theme colors */
+/* ---break--- light theme colors */
 :root {
   --radius: 0.625rem;
   --background: hsl(0deg 0% 98%); /* grey 50 */
@@ -59,9 +60,9 @@
   --secondary: oklch(97% 0.001 106.424deg);
   --secondary-foreground: oklch(21.6% 0.006 56.043deg);
   --muted: oklch(97% 0.001 106.424deg);
-  --muted-foreground: hsl(236deg 9% 61%); /* grey 600 */
+  --muted-foreground: hsl(236deg, 9%, 61%); /* grey 600 */
   --accent: hsl(234deg 39% 85%); /* purple 300 */
-  --accent-foreground: hsl(235deg 19% 35%); /*navy 850*/
+  --accent-foreground: hsl(235deg, 19%, 35%); /* navy 850 */
   --destructive: oklch(57.7% 0.245 27.325deg);
   --border: hsl(233deg 11% 84%); /* grey 300 */
   --input: hsl(0deg 0% 98%); /* grey 50 */
@@ -79,20 +80,16 @@
   --sidebar-accent-foreground: oklch(21.6% 0.006 56.043deg);
   --sidebar-border: oklch(92.3% 0.003 48.717deg);
   --sidebar-ring: oklch(70.9% 0.01 56.259deg);
-  --font-sans: "Josefin Sans", system-ui, sans-serif;
-  --check-gradient: linear-gradient(
-    140deg,
-    hsl(192deg 100% 67%),
-    hsl(280deg 87% 65%)
-  );
+  --font-sans: 'Josefin Sans', system-ui, sans-serif;
+  --check-gradient: linear-gradient(140deg, hsl(192deg 100% 67%), hsl(280deg 87% 65%));
 }
 
-/* Dark theme colors */
+/* ---break--- */
 .dark {
   --background: hsl(235deg 21% 11%); /* navy 950 */
-  --foreground: hsl(234deg 39% 85%); /* grey 600 */
+  --foreground: hsl(234deg, 39%, 85%); /* grey 600 */
   --card: hsl(235deg 24% 19%); /* navy 900 */
-  --card-foreground: hsl(236deg 9% 61%);
+  --card-foreground: hsl(236deg, 9%, 61%);
   --popover: oklch(21.6% 0.006 56.043deg);
   --popover-foreground: oklch(98.5% 0.001 106.423deg);
   --primary: hsl(220deg 98% 61%);
@@ -102,7 +99,7 @@
   --muted: oklch(26.8% 0.007 34.298deg);
   --muted-foreground: hsl(236deg 9% 61%); /* grey 600 */
   --accent: hsl(233deg 14% 35%); /* purple 700 */
-  --accent-foreground: hsl(236deg 33% 92%); /* purple 100 */
+  --accent-foreground: hsl(236deg, 33%, 92%); /* purple 100 */
   --destructive: oklch(70.4% 0.191 22.216deg);
   --border: hsl(235deg 16% 43%); /* purple 600 */
   --input: hsl(235deg 21% 11%); /* navy 950 */
@@ -120,12 +117,8 @@
   --sidebar-accent-foreground: oklch(98.5% 0.001 106.423deg);
   --sidebar-border: oklch(100% 0 0deg / 0.1);
   --sidebar-ring: oklch(55.3% 0.013 58.071deg);
-  --font-sans: "Josefin Sans", system-ui, sans-serif;
-  --check-gradient: linear-gradient(
-    140deg,
-    hsl(192deg 100% 67%),
-    hsl(280deg 87% 65%)
-  );
+  --font-sans: 'Josefin Sans', system-ui, sans-serif;
+  --check-gradient: linear-gradient(140deg, hsl(192deg 100% 67%), hsl(280deg 87% 65%));
 }
 
 /* ---break--- */
@@ -136,6 +129,7 @@
 
   body {
     @apply bg-background text-foreground;
+
     font-family: var(--font-sans);
     font-size: 18px;
   }
