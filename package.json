@@ -1,5 +1,5 @@
 {
-  "name": "wk5-lvl4-react-todo",
+  "name": "fem-todo-app",
   "version": "1.0.0",
   "description": "This is the repo for my Wk 5, Level 4 Assignment, to build and deploy a React Todo SPA to s3+Serve via CloudFront.",
   "type": "module",
