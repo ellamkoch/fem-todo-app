@@ -10,13 +10,13 @@ function Filters({ filter, setFilter }) {
   const inactiveBtn = 'text-muted-foreground hover:text-foreground';
 
   return (
-    <div className="filter-btns flex items-center gap-2">
+    <div className="filter-btns flex flex-wrap items-center justify-center gap-1 sm:gap-2">
       <Button
         type="button"
         variant="ghost"
         onClick={() => setFilter('all')}
         aria-pressed={filter === 'all'}
-        className={`${allBtn} ${filter === 'all' ? activeBtn : inactiveBtn}`}
+        className={`min-h-10 ${allBtn} ${filter === 'all' ? activeBtn : inactiveBtn}`}
       >
         All
       </Button>
@@ -25,7 +25,7 @@ function Filters({ filter, setFilter }) {
         variant="ghost"
         onClick={() => setFilter('active')}
         aria-pressed={filter === 'active'}
-        className={`${allBtn} ${filter === 'active' ? activeBtn : inactiveBtn}`}
+        className={`min-h-10 ${allBtn} ${filter === 'active' ? activeBtn : inactiveBtn}`}
       >
         Active
       </Button>
@@ -34,7 +34,7 @@ function Filters({ filter, setFilter }) {
         variant="ghost"
         onClick={() => setFilter('completed')}
         aria-pressed={filter === 'completed'}
-        className={`${allBtn} ${filter === 'completed' ? activeBtn : inactiveBtn}`}
+        className={`min-h-10 ${allBtn} ${filter === 'completed' ? activeBtn : inactiveBtn}`}
       >
         Completed
       </Button>

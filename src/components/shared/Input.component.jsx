@@ -18,7 +18,7 @@ const Input = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`input font-semibold w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none ${className}`}
+      className={`input min-w-0 w-full bg-transparent text-sm font-semibold text-foreground outline-none placeholder:text-muted-foreground sm:text-base ${className}`}
       disabled={disabled}
       aria-label="Task title"
     />

@@ -5,24 +5,17 @@
  * @see TaskItem - Individual task display
  * @see TaskControls - Filter and clear controls
  */
-import { useState, useMemo } from 'react';
-import TaskItem from '@components/tasks/TaskItem.jsx';
+import { useMemo, useState } from 'react';
+
 import NewTaskForm from '@components/tasks/NewTaskForm.jsx';
 import TaskControls from '@components/tasks/TaskControls.jsx';
-import { useTasks } from '@hooks/useTasks.js';
+import TaskItem from '@components/tasks/TaskItem.jsx';
 import { Card } from '@components/ui/card';
+import { useTasks } from '@hooks/useTasks.js';
 
-/**
- * TaskList:
- *  - Uses the custom useTasks hook for all localStorage interactions.
- *  - Manages filter state (All / Active / Completed).
- *  - Delegates add / toggle / delete actions to the hook.
- *  - Displays summary information.
- */
 function TaskList() {
   const [filter, setFilter] = useState('all');
 
-  // Destructuring values from the custom hook.
   const {
     tasks,
     addTask,
@@ -43,11 +36,9 @@ function TaskList() {
     deleteTask(id);
   };
 
-  // Derived summary information based on current tasks.
   const totalTasks = useMemo(() => tasks.length, [tasks]);
   const completedTasks = useMemo(() => tasks.filter((task) => task.is_complete).length, [tasks]);
 
-  // Derived filtered list based on current filter state.
   const visibleTasks = useMemo(
     () =>
       tasks.filter((task) => {
@@ -73,7 +64,7 @@ function TaskList() {
 
       <Card className="mt-6 overflow-hidden rounded-[4px] shadow-lg">
         {visibleTasks.length === 0 ? (
-          <p className="no-tasks px-4 py-6 text-center text-sm text-muted-foreground">
+          <p className="no-tasks px-4 py-6 text-center text-sm text-muted-foreground sm:text-base">
             {emptyMessage}
           </p>
         ) : (

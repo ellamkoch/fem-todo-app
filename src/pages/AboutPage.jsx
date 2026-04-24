@@ -34,9 +34,11 @@ const aboutSections = [
 
 function AboutPage() {
   return (
-    <Card className="mt-6 flex gap-3 overflow-hidden rounded-[4px] px-5 py-3 shadow-lg">
-      <Heading hLevel={1}>About</Heading>
-      <p className="space-y-1 pl-5 text-sm text-foreground/90">
+    <Card className="mt-6 flex gap-4 overflow-hidden rounded-[4px] px-4 py-4 shadow-lg sm:px-5">
+      <Heading hLevel={1} className="text-xl sm:text-2xl">
+        About
+      </Heading>
+      <p className="text-sm leading-6 text-foreground/90 sm:text-base">
         This project is a frontend-focused React application designed to keep task management fast,
         clear, and approachable. It uses localStorage for lightweight client-side persistence and
         emphasizes clean component structure, intentional state management, and a UI designed for
@@ -46,10 +48,10 @@ function AboutPage() {
       <div className="space-y-4">
         {aboutSections.map((section) => (
           <section key={section.title} className="space-y-2">
-            <Heading hLevel={2} className="text-sm uppercase tracking-wide text-foreground/80">
+            <Heading hLevel={2} className="text-sm uppercase tracking-wide text-foreground/80 sm:text-base">
               {section.title}
             </Heading>
-            <ul className="list-disc space-y-1 pl-5 text-sm text-foreground/90 marker:text-foreground/60">
+            <ul className="list-disc space-y-1 pl-5 text-sm text-foreground/90 marker:text-foreground/60 sm:text-base">
               {section.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -59,7 +61,7 @@ function AboutPage() {
       </div>
 
       <p>
-        <Link to="/" className="text-primary transition-colors hover:underline">
+        <Link to="/" className="inline-flex min-h-10 items-center text-sm text-primary transition-colors hover:underline sm:text-base">
           Go back to the TODO List
         </Link>
       </p>

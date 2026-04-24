@@ -13,7 +13,7 @@ function ClearCompleted({ completedTasks, clearCompleted }) {
       variant="ghost"
       onClick={clearCompleted}
       disabled={isDisabled}
-      className="text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50"
+      className="min-h-10 self-center px-1 text-sm text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50 sm:self-auto sm:text-xs"
     >
       Clear Completed
     </Button>

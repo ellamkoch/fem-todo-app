@@ -3,6 +3,7 @@
  * @see Input - Reusable input component
  */
 import { useState } from 'react';
+
 import Input from '@components/shared/Input.component';
 
 const NewTaskForm = ({ onAddTask }) => {
@@ -44,28 +45,25 @@ const NewTaskForm = ({ onAddTask }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="new-task-form px-5 py-1 mb-2">
+    <form onSubmit={handleSubmit} className="new-task-form mb-2 px-4 py-1 sm:px-5">
       <label htmlFor="task-title" className="sr-only">
         Task title
       </label>
 
-      <div className="flex items-center mt-3 gap-3">
-        <span
-          aria-hidden="true"
-          className="h-5 w-5 rounded-full border border-border"
-        />
+      <div className="mt-3 flex items-center gap-3">
+        <span aria-hidden="true" className="h-5 w-5 shrink-0 rounded-full border border-border" />
         <Input
           id="task-title"
           type="text"
-          placeholder="Create a new todo…"
+          placeholder="Create a new todo..."
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           disabled={submitting}
-          className="flex-1"
+          className="min-h-10 flex-1 text-sm sm:text-base"
         />
       </div>
 
-      {error && <p className="error-text px-5 pb-4 text-sm text-destructive">{error}</p>}
+      {error && <p className="error-text px-2 pb-4 pt-2 text-sm text-destructive sm:px-5">{error}</p>}
     </form>
   );
 };
