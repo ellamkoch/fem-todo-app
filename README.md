@@ -12,7 +12,7 @@ The project focuses on clear component structure, intentional state management, 
 
 **Live Site:** https://emk-fem-todo-app.netlify.app/
 
-The current production version is deployed on Netlify
+The current production version is deployed on Netlify.
 
 ---
 
