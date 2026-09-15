@@ -1,106 +1,156 @@
-# Frontend Mentor – Todo App
+# Todo App
 
-This is my solution to the **Frontend Mentor Todo App challenge** , completed as part of **CodeX – Week 5, Level 3** .
+A responsive, theme-aware task management application built with React.
 
-The project focuses on building a fully functional, theme-aware todo application using React, Supabase, and a component-driven styling approach.
+Originally developed during my CodeX Academy frontend coursework and later refactored for portfolio use, this project expands on the Frontend Mentor Todo App challenge with client-side persistence, reusable components, custom theme handling, and a responsive interface.
 
-The goal was to closely match the Frontend Mentor desktop design while keeping the codebase clean, readable, and maintainable.
-
----
-
-## Links
-
-* **Live Site:** [https://emk-fem-todo-app.netlify.app/](https://emk-fem-todo-app.netlify.app/)]
-* **Repository:** [https://github.com/ellamkoch/fem-todo-app](https://github.com/ellamkoch/fem-todo-app)
+The project focuses on clear component structure, intentional state management, and separating task logic from presentation.
 
 ---
 
-## The Challenge
+## Live Application
 
-Users should be able to:
+**Live Site:** https://emk-fem-todo-app.netlify.app/
 
-* Add, complete, and delete todos
-* Filter tasks by **All / Active / Completed**
-* Clear all completed tasks
-* Toggle between **light, dark, and system** themes
-* Persist tasks using a backend (Supabase)
-* Experience consistent UI behavior across themes
+The current production version is deployed on Netlify.
 
 ---
 
-## Built With
+## Key Features
 
-* React (Vite)
-* Supabase (database + Row Level Security)
-* Tailwind CSS
-* shadcn/ui
-* CSS theme tokens
-* Frontend Mentor design assets
+- Create, complete, and delete tasks
+- Filter tasks by All, Active, and Completed
+- Clear all completed tasks
+- Persist tasks between visits using localStorage
+- Toggle between light, dark, and system themes
+- Responsive layout for desktop and mobile screens
+- Dedicated About page describing the project's technical focus
 
 ---
 
-## Running the Project Locally
+## Screenshots
 
-To run this project locally:
+### Desktop
 
-1. Clone the repository using the project’s GitHub URL.
-2. Install dependencies by running `npm install`.
-3. Create a `.env` file in the project root and add the following environment variables:
+![Todo App desktop view showing task management, filtering, and theme styling](public/screenshots/dark_mode_todo_desktop.png)
 
-   `VITE_SUPABASE_URL=your_supabase_url`
+### Mobile
 
-   `VITE_SUPABASE_ANON_KEY=your_supabase_anon_key`
-4. Start the development server by running `npm run dev`.
+![Todo App mobile view showing the responsive task interface](public/screenshots/light_mode_todo_mobile.png)
 
-The application will be available at `http://localhost:5173`.
+---
 
-## My Process
+## Tech Stack
 
-This project started as a Supabase task list and evolved into a Frontend Mentor–style application through multiple refactors.
+**Frontend**
 
-Key focus areas included:
+- React
+- Vite
+- JavaScript (ES6+)
+- Tailwind CSS
+- shadcn/ui
 
-* Migrating from legacy SCSS and Bootstrap styling to Tailwind and shadcn
-* Create at least 5 styled components from the app that was built in class
-* Centralizing theme behavior using CSS variables and tokens
-* Refactoring components to reduce duplicated styles and conflicting utilities
-* Fixing subtle UI issues caused by inherited defaults (hover states, spacing, font sizing)
-* Cleaning up layout behavior by adjusting shared component defaults instead of adding overrides
+**State & Persistence**
 
-A final cleanup pass focused on removing redundant Tailwind classes and ensuring styles were handled at the appropriate level (layout, component, or token).
+- React hooks
+- Custom task and theme hooks
+- Browser localStorage
+
+**Deployment**
+
+- Netlify — current production deployment
+- AWS S3 and CloudFront — previous deployment completed as part of CodeX Academy cloud deployment practice
+
+---
+
+## Technical Approach
+
+Task state and persistence are centralized in a custom `useTasks` hook, keeping task logic separate from presentation components.
+
+The hook manages:
+
+- Loading persisted tasks from localStorage
+- Creating new tasks with unique IDs
+- Updating task completion status
+- Deleting individual tasks
+- Clearing completed tasks
+- Synchronizing task state with localStorage as tasks change
+
+The interface is built from reusable components, while shared theme tokens provide consistent styling across light and dark modes.
+
+---
+
+## Project Development
+
+This project began as a task-list exercise and evolved through several frontend refactors.
+
+Development included:
+
+- Refactoring an earlier backend-connected version into a focused frontend application
+- Moving task persistence to localStorage
+- Migrating legacy SCSS and Bootstrap styling to Tailwind CSS and shadcn/ui
+- Refactoring repeated interface patterns into reusable components
+- Centralizing task behavior in a custom React hook
+- Centralizing theme behavior with CSS variables and tokens
+- Refining responsive behavior for desktop and mobile layouts
+- Reducing duplicated styles and conflicting utility classes
 
 ---
 
 ## What I Learned
 
-* Small default styles in shared components can introduce unexpected visual spacing or hover behavior
-* Fixing UI issues at the source (tokens or base components) is more reliable than stacking overrides
-* Theme tokens such as `foreground`, `muted-foreground`, and `accent-foreground` should be used intentionally based on context
-* Centralizing responsibilities (for example, typography controlled by a parent component) simplifies maintenance
-* Light and dark mode issues are often token or inheritance related rather than component logic issues
-* How CSS tooling and linters can unintentionally conflict with Tailwind setups, particularly around modern at-rules and package-based imports.
-* How to evaluate linter warnings in the context of framework-driven CSS, and when it is appropriate to leave them unresolved to avoid breaking a working build.
-* How to use <> which is a React Fragment, to group elements without a wrapper.
-* Store repeated Tailwind class names in variables to reduce duplication and make active vs inactive states easier to read.
+This project strengthened my understanding of:
+
+- Separating application logic from presentation using custom React hooks
+- Managing persistent client-side state with localStorage
+- Updating React state immutably for create, update, and delete operations
+- Building reusable components to reduce duplicated interface logic
+- Creating theme systems with shared CSS tokens instead of component-level overrides
+- Diagnosing styling issues caused by inherited defaults, tokens, and utility conflicts
+- Refactoring an existing application while preserving working functionality
 
 ---
 
-## Continued Development
+## Running the Project Locally
 
-If I revisit this project, I would:
+Clone the repository:
 
-* Add drag-and-drop task reordering
-* Add mobile styling
+```bash
+git clone https://github.com/ellamkoch/fem-todo-app.git
+cd fem-todo-app
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```text
+http://localhost:5173
+```
 
 ---
 
-## Useful Resources
+## Future Improvements
 
-* Frontend Mentor challenge documentation [https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
-* shadcn/ui component patterns [https://ui.shadcn.com/docs/components](https://ui.shadcn.com/docs/components)
-* Tailwind CSS utility and token documentation [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
-* Tailwind Crash Course [https://www.youtube.com/watch?v=dFgzHOX84xQ](https://www.youtube.com/watch?v=dFgzHOX84xQ)
-* React & Tailwind CSS Image Gallery [https://www.youtube.com/watch?v=FiGmAI5e91M](https://www.youtube.com/watch?v=FiGmAI5e91M)
-* React documents [https://react.dev/reference/react](https://react.dev/reference/react)
-* Thinking in React for breaking down the UI into components [https://react.dev/learn/thinking-in-react#step-1-break-the-ui-into-a-component-hierarchy](https://react.dev/learn/thinking-in-react#step-1-break-the-ui-into-a-component-hierarchy)
+Potential future enhancements include:
 
+- Drag-and-drop task reordering
+- Expanded automated testing
+- Additional accessibility refinements
+- Continued responsive-layout refinements
+
+---
+
+## Acknowledgements
+
+This project was inspired by the [Frontend Mentor Todo App challenge](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).

@@ -1,9 +1,11 @@
-//This file controls the UI state and delegates the actual task updates to the data layer.
-//shadcn imports
-import { Button } from "@components/ui/button";
+/**
+ * Clear completed tasks button.
+ * @see Button - shadcn button component
+ */
+import { Button } from '@components/ui/button';
 
 function ClearCompleted({ completedTasks, clearCompleted }) {
-  const isDisabled = completedTasks === 0;//button is disabled if completedTasks is = 0
+  const isDisabled = completedTasks === 0;
 
   return (
     <Button
@@ -11,7 +13,7 @@ function ClearCompleted({ completedTasks, clearCompleted }) {
       variant="ghost"
       onClick={clearCompleted}
       disabled={isDisabled}
-      className="text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50"
+      className="min-h-10 self-center px-1 text-sm text-muted-foreground hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50 sm:self-auto sm:text-xs"
     >
       Clear Completed
     </Button>

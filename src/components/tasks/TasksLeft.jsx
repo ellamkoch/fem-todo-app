@@ -1,14 +1,16 @@
-//This file handles the logic of counting the tasks left and the display of how many tasks are left
-function TasksLeft({ totalTasks, completedTasks }){
+/**
+ * Displays remaining task count.
+ */
+function TasksLeft({ totalTasks, completedTasks }) {
   const remaining = totalTasks - completedTasks;
 
   if (totalTasks === 0) return null;
 
-    return (
-        <p className="task-left px-1">
-          {remaining} item{remaining !== 1 ? "s" : ""} left
-        </p>
-    );
+  return (
+    <p className="task-left px-1 text-center sm:text-left">
+      {remaining} item{remaining !== 1 ? 's' : ''} left
+    </p>
+  );
 }
 
 export default TasksLeft;
